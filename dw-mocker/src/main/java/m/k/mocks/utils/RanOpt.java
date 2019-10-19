@@ -1,4 +1,4 @@
-package c.e.p.gm.utils;
+package m.k.mocks.utils;
 
 /**
  * @date 2019-10-18 - 14:10

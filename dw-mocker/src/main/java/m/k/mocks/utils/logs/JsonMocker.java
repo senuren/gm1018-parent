@@ -1,9 +1,9 @@
-package c.e.p.gm.utils.logs;
+package m.k.mocks.utils.logs;
 
-import c.e.p.gm.utils.RanOpt;
-import c.e.p.gm.utils.RandomDate;
-import c.e.p.gm.utils.RandomNum;
-import c.e.p.gm.utils.RandomOptionGroup;
+import m.k.mocks.utils.RanOpt;
+import m.k.mocks.utils.RandomDate;
+import m.k.mocks.utils.RandomNum;
+import m.k.mocks.utils.RandomOptionGroup;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -34,7 +34,7 @@ public class JsonMocker {
     };
     RandomOptionGroup<String>  areaOptionGroup= new RandomOptionGroup(areaOpts);
 
-    String appId="gmall2019";
+    String appId="gmall1018";
 
     RanOpt[] vsOpts= {new RanOpt("1.2.0",50),new RanOpt("1.1.2",15),
             new RanOpt("1.1.3",30),
@@ -115,14 +115,14 @@ public class JsonMocker {
 
 
     String initStartupLog( ){
-            /*`type` string   COMMENT '日志类型',
-             `mid` string COMMENT '设备唯一标识',
-      `uid` string COMMENT '用户标识',
-      `os` string COMMENT '操作系统', ,
-      `appId` string COMMENT '应用id', ,
-     `vs` string COMMENT '版本号',
-     `ts` bigint COMMENT '启动时间', ,
-     `area` string COMMENT '城市' */
+        /*`type` string   COMMENT '日志类型',
+        `mid` string COMMENT '设备唯一标识',
+        `uid` string COMMENT '用户标识',
+        `os` string COMMENT '操作系统', ,
+        `appId` string COMMENT '应用id', ,
+        `vs` string COMMENT '版本号',
+        `ts` bigint COMMENT '启动时间', ,
+        `area` string COMMENT '城市' */
 
 
         String mid= "mid_"+ RandomNum.getRandInt(1,500);
@@ -159,7 +159,7 @@ public class JsonMocker {
                 jsonMocker.sendLog(eventLog);
             }
             try {
-                Thread.sleep(20);
+                Thread.sleep(1024);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

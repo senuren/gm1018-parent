@@ -1,4 +1,4 @@
-package c.e.p.gm.utils.logs;
+package m.k.mocks.utils.logs;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -11,8 +11,9 @@ public class LogUploader {
     public static void sendLogStream(String log){
         try{
             //不同的日志类型对应不同的URL
-
-            URL url  =new URL("http://logserver/log");
+            String logserver = "127.0.0.1";
+            String serverPort = "8080";
+            URL url  =new URL("http://"+logserver+":"+serverPort+"/log");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             //设置请求方式为post
@@ -29,7 +30,7 @@ public class LogUploader {
 
             //输出流
             OutputStream out = conn.getOutputStream();
-            out.write(("logString="+log).getBytes());
+            out.write(("logStr="+log).getBytes());
             out.flush();
             out.close();
             int code = conn.getResponseCode();

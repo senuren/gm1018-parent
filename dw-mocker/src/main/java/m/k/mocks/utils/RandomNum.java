@@ -1,4 +1,4 @@
-package c.e.p.gm.utils;
+package m.k.mocks.utils;
 
 import java.util.Random;
 
