@@ -1,5 +1,7 @@
 package m.k.mocks.utils.logs;
 
+import c.e.p.gm.commons.constants.GmConstants;
+
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -11,9 +13,14 @@ public class LogUploader {
     public static void sendLogStream(String log){
         try{
             //不同的日志类型对应不同的URL
-            String logserver = "127.0.0.1";
-            String serverPort = "8080";
-            URL url  =new URL("http://"+logserver+":"+serverPort+"/log");
+            //String logserver = "127.0.0.1";
+            //String serverPort = "8080";
+            //已经在常量值模块写好了。
+
+            URL url  =new URL(GmConstants.PROTOCOL_HTTP+
+                              GmConstants.logserverHost+
+                              GmConstants.logserverPort+
+                              GmConstants.postPath);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             //设置请求方式为post
@@ -30,7 +37,10 @@ public class LogUploader {
 
             //输出流
             OutputStream out = conn.getOutputStream();
-            out.write(("logStr="+log).getBytes());
+            out.write((GmConstants.UPLOAD_OUT_REQUEST_IN_logStr
+                       +"="
+                       +log)
+                              .getBytes());
             out.flush();
             out.close();
             int code = conn.getResponseCode();

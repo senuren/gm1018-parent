@@ -16,6 +16,7 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <!--JSONObject  JSON.parseObj-->
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
